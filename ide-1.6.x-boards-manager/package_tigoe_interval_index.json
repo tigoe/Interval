@@ -1,0 +1,28 @@
+{
+  "packages": [
+    {
+      "name": "interval",
+      "maintainer": "Tom Igoe",
+      "websiteURL": "https://github.com/tigoe/Interval",
+      "email": "",
+      "help": {
+        "online": ""
+      },
+      "platforms": [
+        {
+          "name": "interval",
+          "architecture": "*",
+          "version": "0.0.1",
+          "category": "interval",
+          "help": {
+            "online": ""
+          },
+          "url": "https://github.com/tigoe/Interval/archive/0.0.1.zip",
+          "archiveFileName": "0.0.1.zip",
+          "checksum": ,
+          "size": ,
+          "boards": ,
+          "toolsDependencies": ,
+    }
+  ]
+}
