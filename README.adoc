@@ -1,0 +1,7 @@
+= Interval Library for Arduino =
+
+This library allows you to set repeating or one-time functions that happen after an interval like in JavaScript. You can use .setInterval() to create a repeating event, and .setTimeout() to create a one-time event. You can also change the interval delay using .setDelay(). Once you've created an interval, you have to continually check it in the main loop using .check(). When the interval has passed, .done will be true.
+
+
+
+== License ==

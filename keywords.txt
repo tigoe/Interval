@@ -1,0 +1,24 @@
+#######################################
+# Syntax Coloring Map For Interval
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Interval	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+play	KEYWORD2
+repeating	KEYWORD2
+done	KEYWORD2
+setInterval	KEYWORD2
+setTimeout	KEYWORD2
+setDelay	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
