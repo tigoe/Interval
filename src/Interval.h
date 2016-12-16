@@ -7,6 +7,7 @@
 class Interval
 {
   public:
+    Interval();
     void (*callback)();         // callback for the timer
     boolean repeating = false;  // whether interval should repeat
     boolean done = false;       // whether interval is done
