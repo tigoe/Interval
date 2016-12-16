@@ -1,3 +1,16 @@
+/*\
+  SetIntervalExample
+
+  Shows how to use the setInterval function of the Interval library.
+  Runs two Intervals: one toggles the builtin LED once every two seconds
+  The other prints a message to the Serial Monitor every second.
+
+  Circuit:
+    - Builtin LED
+
+  created 15 Dec. 2016
+  by Tom Igoe
+*/
 #include "Interval.h"
 
 Interval ledTimer;       // set a timer for the LED
