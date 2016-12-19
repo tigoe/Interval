@@ -34,7 +34,7 @@ unsigned long Interval::check() {
       this->stop();
     }
   }
-  return this->done;
+  return millis() - this->timeStamp;
 }
 
 void Interval::setDelay(unsigned long _delay) {
