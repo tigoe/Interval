@@ -9,6 +9,7 @@ class Interval
   public:
     Interval();
     boolean repeating = false;  // whether interval should repeat
+    boolean done = false;       // whether interval is done
     void setInterval(void (*callback)(), unsigned long _delay);
     void setTimeout(void (*callback)(), unsigned long _delay);
     void setDelay(unsigned long _delay);
@@ -19,7 +20,7 @@ class Interval
     void (*callback)();         // callback for the timer
     unsigned long delay;        // delay between callbacks, in ms
     unsigned long timeStamp;    // last time callback was called
-    boolean done = false;       // whether interval is done
+
 };
 
 #endif

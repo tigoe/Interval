@@ -49,5 +49,6 @@ void Interval::reset() {
 // stop the interval:
 void Interval::stop() {
   this->timeStamp = 0;
-  this->done - true;
+  this->done = true;
+  this->repeating = false;
 }
