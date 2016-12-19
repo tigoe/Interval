@@ -14,7 +14,9 @@ class Interval
     void setInterval(void (*callback)(), unsigned long _delay);
     void setTimeout(void (*callback)(), unsigned long _delay);
     void setDelay(unsigned long _delay);
-    unsigned long check();       // called every time through loop
+    unsigned long check();      // called every time through loop
+    void reset();               // reset the interval to the current millis
+    void stop();                // stop the interval
   private:
     unsigned long delay;        // delay between callbacks, in ms
     unsigned long timeStamp;    // last time callback was called

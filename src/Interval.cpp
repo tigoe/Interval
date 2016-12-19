@@ -26,12 +26,12 @@ void Interval::setTimeout(void (*callback)(), unsigned long _delay) {
 unsigned long Interval::check() {
   if (millis() - this->timeStamp >= this->delay && !this->done) {
     this->callback();
-    // if repeating is true, reset the timeStamp for next interval:
     if (this->repeating) {
-      this->timeStamp = millis();
+      // if repeating is true, reset the timeStamp for next interval:
+      this->reset();
     } else {
-      this->timeStamp = 0;
-      this->done = true;
+      // if not, stop the interval:
+      this->stop();
     }
   }
   return this->done;
@@ -39,4 +39,15 @@ unsigned long Interval::check() {
 
 void Interval::setDelay(unsigned long _delay) {
   this->delay = _delay;
+}
+
+// reset the interval to the current millis():
+void Interval::reset() {
+  this->delay = millis();
+}
+
+// stop the interval:
+void Interval::stop() {
+  this->timeStamp = 0;
+  this->done - true;
 }
