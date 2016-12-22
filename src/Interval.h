@@ -8,18 +8,19 @@ class Interval
 {
   public:
     Interval();
-    boolean repeating = false;  // whether interval should repeat
-    boolean done = false;       // whether interval is done
-    void setInterval(void (*callback)(), unsigned long _delay);
-    void setTimeout(void (*callback)(), unsigned long _delay);
-    void setDelay(unsigned long _delay);
+    void setInterval(void (*callback)(), unsigned long delay);
+    void setTimeout(void (*callback)(), unsigned long delay);
+    void setDelay(unsigned long delay);
     unsigned long check();      // called every time through loop
     void reset();               // reset the interval to the current millis
     void stop();                // stop the interval
+    unsigned long getDelay();
   private:
-    void (*callback)();         // callback for the timer
-    unsigned long delay;        // delay between callbacks, in ms
-    unsigned long timeStamp;    // last time callback was called
+    void (*_callback)();         // callback for the timer
+    unsigned long _delay;        // delay between callbacks, in ms
+    unsigned long _timeStamp;    // last time callback was called
+    boolean _repeating = false;  // whether interval should repeat
+    boolean _done = false;       // whether interval is done
 
 };
 

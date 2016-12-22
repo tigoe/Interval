@@ -2,53 +2,59 @@
 #include "Interval.h"
 
 Interval::Interval() {
-  this->timeStamp = millis();
+  _timeStamp = millis();
 }
 
 // set the callback and delay all at once. Should this be begin()?
-void Interval::setInterval(void (*callback)(), unsigned long _delay) {
-  this->callback = callback;
-  this->delay = _delay;
-  this->timeStamp = millis();
-  this->repeating = true;
+void Interval::setInterval(void (*callback)(), unsigned long delay) {
+  _callback = callback;
+  _delay = delay;
+  _timeStamp = millis();
+  _repeating = true;
 }
 
 // set the callback and delay all at once, for a timeout:
-void Interval::setTimeout(void (*callback)(), unsigned long _delay) {
-  this->callback = callback;
-  this->delay = _delay;
-  this->timeStamp = millis();
-  this->repeating = false;
-  this->done = false;
+void Interval::setTimeout(void (*callback)(), unsigned long delay) {
+  _callback = callback;
+  _delay = delay;
+  _timeStamp = millis();
+  _repeating = false;
+  _done = false;
 }
 
 // check the timer, call the callback if the delay has passed:
 unsigned long Interval::check() {
-  if (millis() - this->timeStamp >= this->delay && !this->done) {
-    this->callback();
-    if (this->repeating) {
+  if ((millis() - _timeStamp >= _delay) && !_done) {
+    _callback();
+    if (_repeating) {
       // if repeating is true, reset the timeStamp for next interval:
-      this->reset();
+      reset();
     } else {
       // if not, stop the interval:
-      this->stop();
+      stop();
     }
   }
-  return millis() - this->timeStamp;
+  return (millis() - _timeStamp);
 }
 
-void Interval::setDelay(unsigned long _delay) {
-  this->delay = _delay;
+void Interval::setDelay(unsigned long delay) {
+  _delay = delay;
 }
+
+unsigned long Interval::getDelay() {
+   return _delay;
+}
+
 
 // reset the interval to the current millis():
 void Interval::reset() {
-  this->delay = millis();
+  _timeStamp = millis();
+  _done = false;
 }
 
 // stop the interval:
 void Interval::stop() {
-  this->timeStamp = 0;
-  this->done = true;
-  this->repeating = false;
+  _timeStamp = 0;
+  _done = true;
+  _repeating = false;
 }
