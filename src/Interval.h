@@ -17,8 +17,8 @@ class Interval
     unsigned long getDelay();
   private:
     void (*_callback)();         // callback for the timer
-    unsigned long _delay;        // delay between callbacks, in ms
-    unsigned long _timeStamp;    // last time callback was called
+    unsigned long _delay = 0;    // delay between callbacks, in ms
+    unsigned long _timeStamp = 0;// last time callback was called
     boolean _repeating = false;  // whether interval should repeat
     boolean _done = false;       // whether interval is done
 

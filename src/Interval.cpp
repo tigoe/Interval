@@ -3,6 +3,9 @@
 
 Interval::Interval() {
   _timeStamp = millis();
+  _delay = 0;
+  _timeStamp = 0;
+  _repeating = false;
 }
 
 // set the callback and delay all at once. Should this be begin()?
@@ -24,6 +27,9 @@ void Interval::setTimeout(void (*callback)(), unsigned long delay) {
 
 // check the timer, call the callback if the delay has passed:
 unsigned long Interval::check() {
+  // if the interval hasn't been initialized, return:
+  if (_timeStamp == 0 && _delay == 0) return 0;
+
   if ((millis() - _timeStamp >= _delay) && !_done) {
     _callback();
     if (_repeating) {
@@ -56,5 +62,4 @@ void Interval::reset() {
 void Interval::stop() {
   _timeStamp = 0;
   _done = true;
-  _repeating = false;
 }
